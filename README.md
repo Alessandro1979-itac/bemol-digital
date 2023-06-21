@@ -1,68 +1,20 @@
-# Desafio BemolDigital
+# Desafio BEMOL - Super Canal
+Início de um projeto de Comunicação em diversos canais.
 
-Desafio do processo seletivo da Bemol Digital, que trata da criação de uma feature para contas de usuários.
+# SETUP
+O projeto é composto de três pastas.
 
-Os campos usados no formulário são:
+- A primeira é a raiz onde se encontram os arquivos de docker.
+- A segunda é a pasta backend onde está o projeto API com Laravel
+- A Terceira é a pasta frontend, onde se encontra a aplicação frontend em angular.
 
-- Nome completo
-- CPF
-- E-mail
-- Endereço
+Para carregarmos a aplicação, primeira iremos executar o `docker compose up -d` para levantar os containers.
 
-## Requerimentos
+Após levantado os containers, executar o `composer install` através do comando `docker exec desafio-bemol-php-fpm composer install`.
 
-- Docker
+Em seguida, fazer a cópia do `.env.example` que está na pasta backend para o arquivo `.env`.
 
-## Instruções de execução
+Em seguida executar as migrations, através do comando `docker exec desafio-bemol-php-fpm php artisan migrate`.
 
-1. Back-End:
-   1.1 Na raiz do projeto, digitar o seguinte comando no terminal:
+E carregar a aplicação frontend executando o `ng serve` dentro da pasta frontend.
 
-```
-      docker-compose build && docker-compose up
-```
-
-2. Acessar localhost:3000 ( Porta da aplicação Front-end)
-
-## Escolhas
-
-- Laravel:
-  Ultilizei Laravel porque é um obrigatório do projeto.
-
-- MySQL :
-  Como SGBD usei MySQL por uma questão de opção mesmo.
-
-- Docker :
-  Mais fácil para outras pessoas utilizarem e testarem essa aplicação.
-
-## Api
-
-### Descrição
-
-Esta api foi desenvolvida com o simples propósito de cadastrar um novo usuário
-
-### Funcionamento
-
-Seu funcionamento se da através de primeiramente uma conexão com banco de dados, e em seguida, a disponibilidade do endpoint "users/register/" que recebe um post
-
-Envia como retorno para o front:
-Sucesso : OK
-Warning: Caso haja um cadastro de um usuário igual
-Erro : Caso contrário será fornecido um json com a mensagem de erro.
-
-#### Tecnologias ultilizadas
-
-- Backend
-  - Laravel
-- SGBD
-  - MySQL
-
-## Aplicação frontend
-
-### Descrição
-
-A aplicação frontend envia via post os dados para serem cadastrados no banco de dados.
-
-#### Tecnologias ultilizadas
-
-- Angular.
