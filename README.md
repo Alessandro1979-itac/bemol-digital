@@ -5,8 +5,8 @@ Início de um projeto de Comunicação em diversos canais.
 O projeto é composto de três pastas.
 
 - A primeira é a raiz onde se encontram os arquivos de docker.
-- A segunda é a pasta backend onde está o projeto API com Laravel
-- A Terceira é a pasta frontend, onde se encontra a aplicação frontend em angular.
+- A segunda é a pasta backend (bemol-digital-laravel), onde está o projeto API com Laravel
+- A Terceira é a pasta frontend (bemol-digital-angular), onde se encontra a aplicação frontend em angular.
 
 Para carregarmos a aplicação, primeira iremos executar o `docker compose up -d` para levantar os containers.
 
