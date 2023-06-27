@@ -1,27 +1,31 @@
-# Frontend
+# Front End Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.3.
+Este é um projeto angular, que tem como desafio a implementação da interface que vai consumir o projeto, [bemol-digital-angular-challenge](https://github.com/LeonardoBAV/bemol-digital-angular-challenge).
 
-## Development server
+## Instalação
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+### Requisitos
+- docker
+- git
 
-## Code scaffolding
+É importante que a porta 4200 esteja liberada, de acordo com o script de comandos, foi configurado para utilizar esta porta. Para instalar siga os comandos abaixo:
+```sh
+git clone https://github.com/LeonardoBAV/bemol-digital-angular-challenge.git
+cd bemol-digital-angular-challenge/
+docker build -t bemol-digital-angular-image .
+docker run --name bemol-digital-angular-image -d -p 4200:4200 bemol-digital-angular-image
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Descrição do que cada comando realiza:
+- 1- Download do projeto via git clone
+- 2- Entrar na pasta raiz do projeto
+- 3- Monta a imagem do container
+- 4- Executa o container
+        - Caso queira executar o projeto em outra porta, substitua 4200:4200 por {PORTA_DESEJADA}:4200
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Acessar
+```sh
+http://localhost:4200
+```
+Observações
+- Projeto desenvolvido no lubuntu versão 21.10

@@ -1,39 +1,38 @@
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegistrationComponent } from './auth/registration/registration.component';
-import { NgxMaskModule } from 'ngx-mask';
-import { ToastrModule } from 'ngx-toastr';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { MatSliderModule } from '@angular/material/slider';
+import { ComponentsModule } from './components/components.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxNotifierModule } from 'ngx-notifier';
+import { GlobalErrorHandler } from './services/globalErrorHandler';
+
+
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegistrationComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    NgxMaskModule.forRoot(),
+    AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot({
-      timeOut: 10000,
-      closeButton: true,
-      positionClass: 'toast-top-right',
-      preventDuplicates: true
-    })
+    HttpClientModule,
+    MatSliderModule,
+    ComponentsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule, 
+    NgxNotifierModule
   ],
-  providers: [],
+  providers: [
+    {provide: ErrorHandler, useClass: GlobalErrorHandler}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
