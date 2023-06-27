@@ -27,6 +27,7 @@ class ClienteServico
         $dados = $this->tratarInput($input);
 
         $cliente = $this->repositorio->save($dados);
+
         return $this->tratarOutput($cliente);
     }
 
