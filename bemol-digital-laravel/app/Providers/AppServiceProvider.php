@@ -2,8 +2,6 @@
 
 namespace App\Providers;
 
-use Faker\Factory;
-use Faker\Generator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -15,11 +13,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment() !== 'production') {
-            $this->app->singleton(Generator::class, function () {
-                return Factory::create(env('FAKER_LANGUAGE'));
-            });
-        }
+        //
     }
 
     /**

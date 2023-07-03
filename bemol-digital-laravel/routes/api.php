@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\UsuarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-/*Route::middleware('auth:api')->get('/bemoldigitallaravelchallenge', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
-});*/
+});
 
-
-Route::prefix('/bemoldigitallaravel')->group(function() {
-	Route::get('', [UserController::class, 'index'])->name('users.index');
-    Route::get('{user}/edit', [UserController::class, 'edit'])->name('users.edit');
-    Route::post('', [UserController::class, 'store'])->name('users.store');
-    Route::put('{user}', [UserController::class, 'update'])->name('users.update');
-    Route::delete('{user}', [UserController::class, 'destroy'])->name('users.destroy');
+Route::prefix('usuario')->group(function () {
+    Route::get('/',[ UsuarioController::class, 'getAll']);
+    Route::post('/',[ UsuarioController::class, 'create']);
+    Route::delete('/{id}',[ UsuarioController::class, 'delete']);
+    Route::get('/{id}',[ UsuarioController::class, 'get']);
+    Route::put('/{id}',[ UsuarioController::class, 'update']);
 });
