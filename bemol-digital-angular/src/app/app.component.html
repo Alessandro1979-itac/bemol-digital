@@ -1,18 +1,18 @@
-<html>
-  <body>
-    <header>
-      
-    </header>
-    <main>
-      <h1 class="text-center mt-3">Desafio Bemol Digital</h1>
-      <div class="container">
-        <div class="row">
-          <div class="col"><router-outlet></router-outlet></div>
-        </div>
-      </div> 
-      <ngx-notifier></ngx-notifier>
-    </main>
-    <footer>
-    </footer>
-  </body>
-</html>
+<div class="container" style="padding: 20px">
+  <h1 style="text-align: center">
+    <a href="/usuario/listar"> Bemol-Canais </a>
+  </h1>
+  <div class="row">
+    <button
+      type="button"
+      [routerLink]="'/usuario/listar'"
+      class="btn btn-primary"
+    >
+      Acessar
+    </button>
+  </div>
+  <hr />
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>
