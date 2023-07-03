@@ -1,87 +1,43 @@
 # Desafio BEMOL - Super Canal
 
-Início de um projeto de Comunicação em diversos canais.
+# Introdução
 
-O projeto é composto de duas pastas.
+Neste repositório estão os projetos de backend e frontend que foram desenvolvidos com Laravel e Angular. Para executar esses projetos, siga as instruções abaixo.
 
-- A primeira é a pasta backend (bemol-digital-laravel), onde está o projeto API com Laravel
-- A segunda é a pasta frontend (bemol-digital-angular), onde se encontra a aplicação frontend em angular.
+## Pré-requisitos
 
-# Back End Laravel
+- PHP 8 ou superior
+- Composer
+- Node.js
+- NPM
+- Angular CLI
+- MySQL
 
-Este é um projeto laravel, que tem como desafio a implementação de uma API para o gerenciamento de Clientes/Usuários.
+## Backend
 
-## Instalação
+### Configuração
 
-### Requisitos
+1. Clone este repositório em sua máquina local.
+2. Entre na pasta backend usando o terminal.
+3. Execute o comando `composer install` para instalar as dependências.
+4. Crie um banco de dados MySQL em sua máquina local.
+5. Crie um arquivo `.env` na raiz do projeto e configure as variáveis de ambiente de acordo com o exemplo em `.env.example`.
+6. Execute o comando `php artisan migrate` para criar as tabelas no banco de dados.
+7. Execute o comando `php artisan serve` para iniciar o servidor de desenvolvimento.
 
-- docker
-- curl
+### Execução
 
-É importante que a porta 80 esteja liberada, pois por padrão o sail utiliza o docker para rodar nesta porta. Para a instalação siga os comandos abaixo:
+Após a configuração, o servidor estará disponível no endereço `http://localhost:8000`. Você pode testar as rotas da API usando ferramentas como o Postman ou o Insomnia.
 
-```sh
-curl -s https://laravel.build/bemol-app | bash
-cd bemol-app
-./vendor/bin/sail up -d
-./vendor/bin/sail composer require alemcar/bemoldigitallaravel-module
-./vendor/bin/sail artisan module:enable
-./vendor/bin/sail artisan migrate
-```
+## Frontend
 
-- Descrição do que cada comando realiza
+### Configuração
 
-  - 1- Download da versão limpa do Laravel
-  - 2- Entrar na pasta raiz do projeto
-  - 3- Inicializar os containers pelo Laravel Sail
-  - 4- Instalar o projeto do desafio via composer
-  - 5- Ativar modulo do projeto
-  - 6- Subir com a estrutura do banco de dados
+1. Clone este repositório em sua máquina local.
+2. Entre na pasta frontend usando o terminal.
+3. Execute o comando `npm install` para instalar as dependências.
+4. Execute o comando `ng serve` para iniciar o servidor de desenvolvimento.
 
-- Pacotes Utilizados:
-  - nwidart/laravel-modules
-  - joshbrw/laravel-module-installer
-  - guzzlehttp/guzzle
-- Projeto para gerenciamento de cliente/usuário
-- Projeto segue estrutura de uma arquitetura DDD, separado nas seguintes camadas
-  - Application
-  - Domain
-  - Infrastructure
-  - Presentation
+### Execução
 
-# Front End Angular
-
-Este é um projeto angular, que tem como desafio a implementação da interface que vai consumir a API com Laravel
-
-## Instalação
-
-### Requisitos
-
-- docker
-- git
-
-É importante que a porta 4200 esteja liberada, de acordo com o script de comandos, foi configurado para utilizar esta porta. Para instalar siga os comandos abaixo:
-
-```sh
-git clone https://github.com/Alessandro1979-itac/bemol-digital/tree/main/bemol-digital-angular
-cd bemol-digital-angular/
-docker build -t bemol-digital-angular-image .
-docker run --name bemol-digital-angular-image -d -p 4200:4200 bemol-digital-angular-image
-```
-
-Descrição do que cada comando realiza:
-
-- 1- Download do projeto via git clone
-- 2- Entrar na pasta raiz do projeto
-- 3- Monta a imagem do container
-- 4- Executa o container - Caso queira executar o projeto em outra porta, substitua 4200:4200 por {PORTA_DESEJADA}:4200
-
-### Acessar
-
-```sh
-http://localhost:4200
-```
-
-Observações
-
-- Projeto desenvolvido no ubuntu versão 22.04
+Após a configuração, o servidor estará disponível no endereço `http://localhost:4200`. Você pode acessar o frontend usando o seu navegador de preferência.
